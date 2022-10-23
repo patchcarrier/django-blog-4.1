@@ -3,6 +3,7 @@ certifi==2022.9.24
 Django==4.1
 pip==22.2.2
 setuptools==63.4.1
+sqlite==3.39.3
 sqlparse==0.4.1
 tzdata==2021.1
 wheel==0.37.1
