@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Post(models.Model):
     title = models.CharField(max_length=128)
     text = models.TextField(blank=True)
@@ -12,17 +13,19 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
 class Category(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField(blank=True)
-    posts = models.ManyToManyField(Post, blank=True, related_name='categories')
+    posts = models.ManyToManyField(Post, blank=True, related_name="categories")
 
     def __str__(self):
         return self.name
-    
+
     class Meta:
-        verbose_name_plural = 'Categories'
-        
+        verbose_name_plural = "Categories"
+
+
 # Django automatically creates the intermediary model through for the many-to-many
 # relationship. Define the __str__ method of this model to not print anything,
 # otherwise things like "Category_posts object(1)", will be shown in the admin
