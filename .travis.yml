@@ -16,8 +16,10 @@ install:
   # Replace dep1 dep2 ... with your dependencies
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION django=4.1
   - conda activate test-environment
+  - conda install black
   # - python -m pip install .
   - python manage.py migrate
   
 script:
+  - black --check blogging mysite polling
   - python manage.py test
