@@ -8,13 +8,16 @@ class CategoryInline(admin.TabularInline):
     def has_change_permission(self, request, obj=None):
         return False
 
+
 class PostAdmin(admin.ModelAdmin):
     inlines = [
         CategoryInline,
     ]
 
+
 class CategoryAdmin(admin.ModelAdmin):
-    exclude = ('posts',)
+    exclude = ("posts",)
+
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
