@@ -17,6 +17,7 @@ install:
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION django=4.1
   - conda activate test-environment
   # - python -m pip install .
+  - python manage.py migrate
   
 script:
   - python manage.py test
