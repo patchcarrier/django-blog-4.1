@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.9.13"
+  - "3.9"
 install:
   # We do this conditionally because it saves us some downloading if the
   # version is the same.
@@ -14,9 +14,8 @@ install:
   - conda info -a
 
   # Replace dep1 dep2 ... with your dependencies
-  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION django=4.1
+  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION django=4.1 black
   - conda activate test-environment
-  - conda install black
   # - python -m pip install .
   - python manage.py migrate
   
